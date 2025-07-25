@@ -1,0 +1,17 @@
+{
+  "name": "sigv4-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@aws-crypto/sha256-js": "^5.2.0",
+    "@aws-sdk/credential-providers": "^3.826.0",
+    "@smithy/signature-v4": "^5.1.2",
+    "@types/node": "^24.0.0",
+    "query-string": "^9.2.0",
+    "typescript": "^5.8.3"
+  }
+}
