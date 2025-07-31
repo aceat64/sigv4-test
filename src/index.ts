@@ -5,14 +5,12 @@ import { Sha256 } from "@aws-crypto/sha256-js";
 
 import queryString from "query-string";
 
-const credentialProvider = fromNodeProviderChain();
-const awsRegion = process.env.AWS_REGION ?? "us-east-1";
-
 async function signGetCallerIdentity(ttl = 60): Promise<HttpRequest> {
   const signer = new SignatureV4({
-    credentials: credentialProvider,
+    credentials: fromNodeProviderChain(),
     service: "sts",
-    region: awsRegion,
+    // AWS_REGION is a standard environment variable used by the AWS CLI and SDK
+    region: process.env.AWS_REGION ?? "us-east-1",
     sha256: Sha256,
   });
 
